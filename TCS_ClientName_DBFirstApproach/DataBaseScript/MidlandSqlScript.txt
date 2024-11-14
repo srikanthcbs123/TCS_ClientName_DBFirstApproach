@@ -1,0 +1,132 @@
+﻿Create database MIDLAND
+USE [MIDLAND]
+GO
+/****** Object:  Table [dbo].[customers]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[customers](
+	[customerNum] [varchar](max) NULL,
+	[customerName] [varchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeeDetails]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeDetails](
+	[EmpId] [int] IDENTITY(1,1) NOT NULL,
+	[EmpName] [varchar](50) NULL,
+	[DateOfBirth] [date] NULL,
+	[EmailId] [varchar](50) NULL,
+	[Gender] [nchar](10) NULL,
+	[Address] [varchar](500) NULL,
+	[PinCode] [varchar](50) NULL,
+ CONSTRAINT [PK_EmployeeDetails] PRIMARY KEY CLUSTERED 
+(
+	[EmpId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Error_details]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Error_details](
+	[txn_id] [int] IDENTITY(1,1) NOT NULL,
+	[Message] [varchar](max) NULL,
+	[Procedure_name] [varchar](max) NULL,
+	[Timestamp] [datetime] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Mast_Employee_Details]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Mast_Employee_Details](
+	[Emp_Id] [int] IDENTITY(1,1) NOT NULL,
+	[Emp_Name] [varchar](max) NULL,
+	[Emp_salary] [money] NULL,
+	[Emp_status] [varchar](max) NULL,
+	[Emp_Designation] [varchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[mast_user]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[mast_user](
+	[txn_id] [varchar](100) NULL,
+	[username] [varchar](100) NULL,
+	[Password] [varchar](100) NULL,
+	[userroll] [varchar](100) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Orders]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Orders](
+	[orderid] [int] IDENTITY(1,1) NOT NULL,
+	[ordername] [varchar](max) NULL,
+	[orderlocation] [varchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[orderid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[sr123]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[sr123](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](100) NULL,
+	[Email] [varchar](100) NULL,
+	[Password] [varchar](100) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SurveyResults]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SurveyResults](
+	[USER_SURVEY_ID] [varchar](max) NULL,
+	[NAME] [varchar](max) NULL,
+	[TIMESTAMP] [varchar](max) NULL,
+	[USER_ID] [varchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Userdata]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Userdata](
+	[txn_id] [varchar](100) NULL,
+	[username] [varchar](100) NULL,
+	[Password] [varchar](100) NULL,
+	[userroll] [varchar](100) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserSurveyQueAns]    Script Date: 14-11-2024 06:51:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserSurveyQueAns](
+	[QUESTION_ORDER] [int] NULL,
+	[QUESTION_ID] [int] NULL,
+	[QUESTION_TEXT] [varchar](max) NULL,
+	[RESPONSE_VALUE] [varchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
